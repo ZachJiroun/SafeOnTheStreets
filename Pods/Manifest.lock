@@ -1,0 +1,19 @@
+PODS:
+  - BFPaperTabBarController (2.1.11):
+    - UIColor+BFPaperColors
+  - DZNEmptyDataSet (1.7.2)
+  - UIColor+BFPaperColors (1.7.2)
+  - XLForm (3.0.2)
+
+DEPENDENCIES:
+  - BFPaperTabBarController (~> 2.1.10)
+  - DZNEmptyDataSet
+  - XLForm (~> 3.0)
+
+SPEC CHECKSUMS:
+  BFPaperTabBarController: 197befdaa258e3790664be49f7c979e38264d355
+  DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
+  UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
+  XLForm: 7817ce29f3f259186e837bb7309ac7e5b7e9b883
+
+COCOAPODS: 0.39.0
