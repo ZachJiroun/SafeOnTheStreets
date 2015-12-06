@@ -27,3 +27,5 @@ xcuserdata
 *.xcuserstate
 
 Pods/
+Carthage/
+Cartfile.resolved

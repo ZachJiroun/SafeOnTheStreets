@@ -29,6 +29,11 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as! ResultsTableViewController
+        destination.mapItems = self.matchingItems
+    }
+    
     @IBAction func zoomIn(sender: UIBarButtonItem) {
         let userLocation = mapView.userLocation
         
@@ -37,13 +42,7 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
     }
     
-    @IBAction func changeMapType(sender: UIBarButtonItem) {
-        if mapView.mapType == MKMapType.Standard {
-            mapView.mapType = MKMapType.Satellite
-        } else {
-            mapView.mapType = MKMapType.Standard
-        }
-    }
+    
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         mapView.centerCoordinate = (userLocation.location?.coordinate)!

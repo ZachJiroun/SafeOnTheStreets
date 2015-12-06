@@ -18,6 +18,10 @@
 		927542B51C0D481100F2CF5B /* Safe_on_the_StreetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927542B41C0D481100F2CF5B /* Safe_on_the_StreetsUITests.swift */; };
 		927542C31C0D4B5000F2CF5B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927542C21C0D4B5000F2CF5B /* TabBarController.swift */; };
 		927542C51C0D615600F2CF5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927542C41C0D615600F2CF5B /* MapKit.framework */; };
+		92A1C8721C13FDF600B273E9 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */; };
+		92A1C8741C13FE1400B273E9 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */; };
+		92A1C8761C13FE2200B273E9 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8751C13FE2200B273E9 /* RouteViewController.swift */; };
+		92A1C8781C140F1B00B273E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		927542B61C0D481100F2CF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		927542C21C0D4B5000F2CF5B /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		927542C41C0D615600F2CF5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
+		92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		92A1C8751C13FE2200B273E9 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9F10C260AD434F3167884842 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C043BAFB518C43DFD33F6DF5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,8 +139,12 @@
 			children = (
 				927542921C0D481000F2CF5B /* AppDelegate.swift */,
 				927542941C0D481000F2CF5B /* LaunchTrackerViewController.swift */,
+				92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */,
+				92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */,
+				92A1C8751C13FE2200B273E9 /* RouteViewController.swift */,
 				927542C21C0D4B5000F2CF5B /* TabBarController.swift */,
 				927542961C0D481000F2CF5B /* SettingsViewController.swift */,
+				92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */,
 				927542981C0D481000F2CF5B /* Main.storyboard */,
 				9275429B1C0D481000F2CF5B /* Assets.xcassets */,
 				9275429D1C0D481000F2CF5B /* LaunchScreen.storyboard */,
@@ -341,10 +353,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A1C8781C140F1B00B273E9 /* UIColorExtension.swift in Sources */,
 				927542971C0D481000F2CF5B /* SettingsViewController.swift in Sources */,
 				927542C31C0D4B5000F2CF5B /* TabBarController.swift in Sources */,
+				92A1C8741C13FE1400B273E9 /* ResultsTableViewCell.swift in Sources */,
 				927542931C0D481000F2CF5B /* AppDelegate.swift in Sources */,
 				927542951C0D481000F2CF5B /* LaunchTrackerViewController.swift in Sources */,
+				92A1C8721C13FDF600B273E9 /* ResultsTableViewController.swift in Sources */,
+				92A1C8761C13FE2200B273E9 /* RouteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
