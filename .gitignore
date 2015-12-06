@@ -26,4 +26,4 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 
-/Pods/
+Pods/
