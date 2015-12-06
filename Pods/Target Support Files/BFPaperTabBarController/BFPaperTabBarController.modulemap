@@ -1,6 +1,0 @@
-framework module BFPaperTabBarController {
-  umbrella header "BFPaperTabBarController-umbrella.h"
-
-  export *
-  module * { export * }
-}
