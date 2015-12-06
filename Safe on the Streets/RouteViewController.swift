@@ -45,7 +45,7 @@ class RouteViewController: UIViewController, MKMapViewDelegate {
     }
     
     func showRoute(response: MKDirectionsResponse) {
-        for route in response.routes as! [MKRoute] {
+        for route in response.routes {
             routeMap.addOverlay(route.polyline, level: MKOverlayLevel.AboveRoads)
             for step in route.steps {
                 print(step.instructions)

@@ -8,6 +8,7 @@
 
 import UIKit
 import XLForm
+import PasscodeLock
 
 class SettingsViewController: XLFormViewController {
     
@@ -105,8 +106,11 @@ class SettingsViewController: XLFormViewController {
         form.addFormSection(section)
         
         // Passcode
-        row = XLFormRowDescriptor(tag: Tags.Passcode, rowType:  XLFormRowDescriptorTypeSelectorPush, title: "Passcode")
-        row.action.viewControllerStoryboardId = "PasscodeViewController"
+        row = XLFormRowDescriptor(tag: Tags.Passcode, rowType:  XLFormRowDescriptorTypeButton, title: "Passcode")
+        row.action.formSelector = "didTouchButton:"
+        row.cellConfig["textLabel.textColor"] = UIColor.blackColor()
+        row.cellConfig["textLabel.textAlignment"] = NSTextAlignment.Left.rawValue
+        row.cellConfig["accessoryType"] = UITableViewCellAccessoryType.DisclosureIndicator.rawValue
         section.addFormRow(row)
         
         // Time Between Check Ins
@@ -133,11 +137,27 @@ class SettingsViewController: XLFormViewController {
         section = XLFormSectionDescriptor()
         section.title = "Location Settings"
         form.addFormSection(section)
+
         // Set Home Address
         row = XLFormRowDescriptor(tag: Tags.HomeAddress, rowType: XLFormRowDescriptorTypeSelectorPush, title: "Set Home Address")
+        //row.action.viewControllerStoryboardId = "SecurityViewController"
         section.addFormRow(row)
         
         self.form = form
+    }
+    
+    func didTouchButton(sender: XLFormRowDescriptor) {
+        let repository = UserDefaultsPasscodeRepository()
+        let configuration = PasscodeLockConfiguration(repository: repository)
+        self.deselectFormRow(sender)
+        let hasPasscode = configuration.repository.hasPasscode
+        let passcodeVC: PasscodeLockViewController
+        if hasPasscode {
+            passcodeVC = PasscodeLockViewController(state: .ChangePasscode, configuration: configuration)
+        } else {
+            passcodeVC = PasscodeLockViewController(state: .SetPasscode, configuration: configuration)
+        }
+        presentViewController(passcodeVC, animated: true, completion: nil)
     }
     
     // Animates the cell with a shake if a required field is not provided
