@@ -32,24 +32,38 @@
                                             <action selector="enterDestinationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="wu9-nj-L9i"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u7-VX-kdZ">
-                                        <rect key="frame" x="214" y="14" width="132" height="21"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yb8-xm-bq0">
+                                        <rect key="frame" x="196" y="0.0" width="169" height="50"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Destination" translatesAutoresizingMaskIntoConstraints="NO" id="EJy-rc-NbX">
+                                                <rect key="frame" x="0.0" y="12" width="25" height="25"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="FVR-QV-GXD"/>
+                                                    <constraint firstAttribute="height" constant="25" id="ecJ-v4-1bZ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u7-VX-kdZ">
+                                                <rect key="frame" x="37" y="14" width="132" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="8w7-DF-iHr" secondAttribute="trailing" id="AOt-48-CWM"/>
-                                    <constraint firstItem="1u7-VX-kdZ" firstAttribute="centerX" secondItem="E0e-VO-Tc4" secondAttribute="centerX" id="Kdw-T1-6qs"/>
+                                    <constraint firstItem="yb8-xm-bq0" firstAttribute="centerX" secondItem="E0e-VO-Tc4" secondAttribute="centerX" id="C3y-js-Nmk"/>
+                                    <constraint firstItem="yb8-xm-bq0" firstAttribute="centerY" secondItem="E0e-VO-Tc4" secondAttribute="centerY" id="T9O-Rc-bPf"/>
                                     <constraint firstItem="8w7-DF-iHr" firstAttribute="leading" secondItem="E0e-VO-Tc4" secondAttribute="leading" id="TRA-0E-sjo"/>
                                     <constraint firstItem="8w7-DF-iHr" firstAttribute="top" secondItem="E0e-VO-Tc4" secondAttribute="top" id="g4P-hM-1cW"/>
                                     <constraint firstAttribute="height" constant="50" id="klr-AS-6WY"/>
                                     <constraint firstAttribute="bottom" secondItem="8w7-DF-iHr" secondAttribute="bottom" id="oKs-4j-O1F"/>
-                                    <constraint firstItem="1u7-VX-kdZ" firstAttribute="centerY" secondItem="E0e-VO-Tc4" secondAttribute="centerY" id="utD-iL-nxe"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzH-ij-22v">
@@ -62,23 +76,33 @@
                                             <action selector="goHomeButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="xKq-5q-B6Y"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Go Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YK5-RZ-EPl">
-                                        <rect key="frame" x="244" y="14" width="72" height="21"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxJ-mp-gSJ">
+                                        <rect key="frame" x="226" y="0.0" width="109" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YK5-RZ-EPl">
+                                                <rect key="frame" x="37" y="18" width="72" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="DD0-ce-DHz">
+                                                <rect key="frame" x="0.0" y="14" width="25" height="25"/>
+                                                <animations/>
+                                            </imageView>
+                                        </subviews>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Mg8-sU-myu" firstAttribute="leading" secondItem="uzH-ij-22v" secondAttribute="leading" id="1iq-eF-6HL"/>
-                                    <constraint firstItem="YK5-RZ-EPl" firstAttribute="centerX" secondItem="uzH-ij-22v" secondAttribute="centerX" id="4b9-Ly-uuQ"/>
+                                    <constraint firstItem="rxJ-mp-gSJ" firstAttribute="centerY" secondItem="uzH-ij-22v" secondAttribute="centerY" id="8nc-a8-uTg"/>
                                     <constraint firstItem="Mg8-sU-myu" firstAttribute="top" secondItem="uzH-ij-22v" secondAttribute="top" id="Htl-1B-IO7"/>
                                     <constraint firstAttribute="trailing" secondItem="Mg8-sU-myu" secondAttribute="trailing" id="Lo4-Bf-iyo"/>
                                     <constraint firstAttribute="height" constant="50" id="OI4-ov-BDl"/>
-                                    <constraint firstItem="YK5-RZ-EPl" firstAttribute="centerY" secondItem="uzH-ij-22v" secondAttribute="centerY" id="gJR-hP-Y0j"/>
+                                    <constraint firstItem="rxJ-mp-gSJ" firstAttribute="centerX" secondItem="uzH-ij-22v" secondAttribute="centerX" id="fJe-ro-10q"/>
                                     <constraint firstAttribute="bottom" secondItem="Mg8-sU-myu" secondAttribute="bottom" id="ovo-l7-RZi"/>
                                 </constraints>
                             </view>
@@ -194,7 +218,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-F5-TAG">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-F5-TAG">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </mapView>
@@ -304,6 +328,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Destination" width="65" height="64"/>
+        <image name="Home" width="64" height="64"/>
         <image name="Pin" width="16" height="24"/>
         <image name="Settings" width="24" height="24"/>
     </resources>
