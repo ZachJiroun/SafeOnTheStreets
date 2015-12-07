@@ -26,6 +26,7 @@
 		92A1C87C1C14C42400B273E9 /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A1C87B1C14C42400B273E9 /* PasscodeLock.framework */; };
 		92A1C87F1C14C79900B273E9 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C87E1C14C79900B273E9 /* PasscodeLockConfiguration.swift */; };
 		92A1C8851C15181E00B273E9 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8841C15181E00B273E9 /* Tags.swift */; };
+		92A1C8871C151C9B00B273E9 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8861C151C9B00B273E9 /* AddressSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		92A1C87B1C14C42400B273E9 /* PasscodeLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PasscodeLock.framework; path = Carthage/Build/iOS/PasscodeLock.framework; sourceTree = "<group>"; };
 		92A1C87E1C14C79900B273E9 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
 		92A1C8841C15181E00B273E9 /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		92A1C8861C151C9B00B273E9 /* AddressSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
 		9F10C260AD434F3167884842 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C043BAFB518C43DFD33F6DF5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				92A1C8791C14C35300B273E9 /* UserDefaultsPasscodeRepository.swift */,
 				92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */,
 				927542981C0D481000F2CF5B /* Main.storyboard */,
+				92A1C8861C151C9B00B273E9 /* AddressSearchViewController.swift */,
 				9275429B1C0D481000F2CF5B /* Assets.xcassets */,
 				9275429D1C0D481000F2CF5B /* LaunchScreen.storyboard */,
 				927542A01C0D481000F2CF5B /* Info.plist */,
@@ -386,6 +389,7 @@
 				92A1C8851C15181E00B273E9 /* Tags.swift in Sources */,
 				927542C31C0D4B5000F2CF5B /* TabBarController.swift in Sources */,
 				92A1C87F1C14C79900B273E9 /* PasscodeLockConfiguration.swift in Sources */,
+				92A1C8871C151C9B00B273E9 /* AddressSearchViewController.swift in Sources */,
 				92A1C8741C13FE1400B273E9 /* ResultsTableViewCell.swift in Sources */,
 				92A1C87A1C14C35300B273E9 /* UserDefaultsPasscodeRepository.swift in Sources */,
 				927542931C0D481000F2CF5B /* AppDelegate.swift in Sources */,

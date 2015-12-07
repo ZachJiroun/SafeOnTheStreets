@@ -51,10 +51,10 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         enterDestinationView.layer.shadowPath = UIBezierPath(rect: enterDestinationView.bounds).CGPath
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destination = segue.destinationViewController as! ResultsTableViewController
-        destination.mapItems = self.matchingItems
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let destination = segue.destinationViewController as! ResultsTableViewController
+//        destination.mapItems = self.matchingItems
+//    }
     
     @IBAction func goHomeButtonPressed(sender: UIButton) {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -68,7 +68,7 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func enterDestinationButtonPressed(sender: AnyObject) {
-        print("enter destination")
+        
     }
     
     

@@ -51,6 +51,7 @@
                                         <animations/>
                                         <connections>
                                             <action selector="enterDestinationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="wu9-nj-L9i"/>
+                                            <segue destination="rXz-N6-reP" kind="show" id="hgG-Ha-noT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -137,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="-309"/>
+            <point key="canvasLocation" x="1566" y="-320"/>
         </scene>
         <!--Results Table View Controller-->
         <scene sceneID="iup-T7-lHv">
@@ -200,6 +201,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exe-sw-1Lz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2328" y="-320"/>
+        </scene>
+        <!--Address Search View Controller-->
+        <scene sceneID="hqL-lB-fgl">
+            <objects>
+                <tableViewController id="rXz-N6-reP" customClass="AddressSearchViewController" customModule="Safe_on_the_Streets" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bTX-ZC-GvB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="peV-KO-b5x">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addressSearchCell" id="8YD-N0-ILr">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8YD-N0-ILr" id="B7n-9h-bEz">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rXz-N6-reP" id="9mb-to-NzQ"/>
+                            <outlet property="delegate" destination="rXz-N6-reP" id="eBF-T3-cdy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9E-81-kws" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2328" y="461"/>
         </scene>
         <!--Route View Controller-->
         <scene sceneID="wyN-jO-q6q">
