@@ -56,16 +56,15 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         destination.mapItems = self.matchingItems
     }
     
-    @IBAction func zoomIn(sender: UIBarButtonItem) {
-        let userLocation = mapView.userLocation
-        
-        let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!, 2000, 2000)
-        
-        mapView.setRegion(region, animated: true)
-    }
-    
     @IBAction func goHomeButtonPressed(sender: UIButton) {
-        print("go home")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        guard let address = defaults.stringForKey(Tags.HomeAddress) else {
+            let alert = UIAlertController(title: "Home Address Not Set", message: "Please set a home address in Settings", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
     }
     
     @IBAction func enterDestinationButtonPressed(sender: AnyObject) {

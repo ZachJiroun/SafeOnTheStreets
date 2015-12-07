@@ -12,15 +12,6 @@ import PasscodeLock
 
 class SettingsViewController: XLFormViewController {
     
-    private struct Tags {
-        static let EmergencyContactName = "emergencyContactName"
-        static let EmergencyContactNumber = "emergencyContactNumber"
-        static let Passcode = "passcode"
-        static let CheckInTime = "checkInTime"
-        static let AlertMessage = "alertMessage"
-        static let HomeAddress = "homeAddress"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "Settings"
