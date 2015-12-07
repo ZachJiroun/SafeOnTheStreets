@@ -13,9 +13,10 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
     
     @IBOutlet weak var searchBar: UISearchBar!
     var matchingItems: [MKMapItem] = [MKMapItem]()
-    var region: MKCoordinateRegion!
+    var region: MKCoordinateRegion?
     let reuseIdentifier = "addressCell"
     let locationManager = CLLocationManager()
+    var isSettingHomeLocation: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,30 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
         cell.backgroundColor = UIColor.backgroundColor()
         return cell
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if isSettingHomeLocation {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let row = indexPath.row
+            let coordinate = matchingItems[row].placemark.coordinate
+            let lat = NSNumber(double: coordinate.latitude)
+            let lon = NSNumber(double: coordinate.longitude)
+            let homeAddress: NSDictionary = ["lat": lat, "lon": lon]
+            defaults.setObject(homeAddress, forKey: Tags.HomeAddress)
+            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+            performSegueWithIdentifier("searchRoute", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searchRoute" {
+            let routeViewController = segue.destinationViewController as! RouteViewController
+            let row = self.tableView.indexPathForSelectedRow!.row
+            routeViewController.destination = matchingItems[row]
+        }
+    }
     
     // MARK: MapKit Search
     
@@ -59,7 +84,7 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
         matchingItems.removeAll()
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBar.text
-        request.region = self.region
+        request.region = self.region!
         
         let search = MKLocalSearch(request: request)
         

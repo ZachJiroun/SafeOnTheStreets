@@ -18,11 +18,6 @@ class SettingsViewController: XLFormViewController {
         self.tableView.backgroundColor = UIColor.backgroundColor()
         self.initializeForm()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func saveButtonTouched(sender: AnyObject) {
         // Check for validation errors
@@ -130,25 +125,37 @@ class SettingsViewController: XLFormViewController {
         form.addFormSection(section)
 
         // Set Home Address
-        row = XLFormRowDescriptor(tag: Tags.HomeAddress, rowType: XLFormRowDescriptorTypeSelectorPush, title: "Set Home Address")
-        row.action.viewControllerStoryboardId = "AddressSearchViewController"
+        row = XLFormRowDescriptor(tag: Tags.HomeAddress, rowType: XLFormRowDescriptorTypeButton, title: "Set Home Address")
+        row.cellConfig["textLabel.textColor"] = UIColor.blackColor()
+        row.cellConfig["textLabel.textAlignment"] = NSTextAlignment.Left.rawValue
+        row.cellConfig["accessoryType"] = UITableViewCellAccessoryType.DisclosureIndicator.rawValue
+        row.action.formSegueIdenfifier = "setHomeAddress"
         section.addFormRow(row)
         
         self.form = form
     }
     
     func didTouchButton(sender: XLFormRowDescriptor) {
-        let repository = UserDefaultsPasscodeRepository()
-        let configuration = PasscodeLockConfiguration(repository: repository)
-        self.deselectFormRow(sender)
-        let hasPasscode = configuration.repository.hasPasscode
-        let passcodeVC: PasscodeLockViewController
-        if hasPasscode {
-            passcodeVC = PasscodeLockViewController(state: .ChangePasscode, configuration: configuration)
-        } else {
-            passcodeVC = PasscodeLockViewController(state: .SetPasscode, configuration: configuration)
+        if (sender.tag! == Tags.Passcode) {
+            let repository = UserDefaultsPasscodeRepository()
+            let configuration = PasscodeLockConfiguration(repository: repository)
+            let hasPasscode = configuration.repository.hasPasscode
+            let passcodeVC: PasscodeLockViewController
+            if hasPasscode {
+                passcodeVC = PasscodeLockViewController(state: .ChangePasscode, configuration: configuration)
+            } else {
+                passcodeVC = PasscodeLockViewController(state: .SetPasscode, configuration: configuration)
+            }
+            presentViewController(passcodeVC, animated: true, completion: nil)
         }
-        presentViewController(passcodeVC, animated: true, completion: nil)
+        self.deselectFormRow(sender)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier! == "setHomeAddress" {
+            let addressViewController = segue.destinationViewController as! AddressSearchViewController
+            addressViewController.isSettingHomeLocation = true
+        }
     }
     
     // Animates the cell with a shake if a required field is not provided

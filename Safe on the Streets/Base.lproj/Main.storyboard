@@ -130,6 +130,7 @@
                         <outlet property="enterDestinationView" destination="E0e-VO-Tc4" id="2UN-Pb-3p0"/>
                         <outlet property="goHomeView" destination="uzH-ij-22v" id="qQx-VY-0PQ"/>
                         <outlet property="mapView" destination="lmf-oS-9nN" id="oEw-uD-UZZ"/>
+                        <segue destination="NCo-mW-4Y9" kind="presentation" identifier="homeRoute" modalPresentationStyle="fullScreen" id="0Bs-qx-GZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -139,7 +140,7 @@
         <!--Search-->
         <scene sceneID="hqL-lB-fgl">
             <objects>
-                <tableViewController title="Search" id="rXz-N6-reP" customClass="AddressSearchViewController" customModule="Safe_on_the_Streets" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddressSearchViewController" title="Search" id="rXz-N6-reP" customClass="AddressSearchViewController" customModule="Safe_on_the_Streets" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bTX-ZC-GvB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,11 +201,12 @@
                     </tableView>
                     <connections>
                         <outlet property="searchBar" destination="peV-KO-b5x" id="gOv-vf-57H"/>
+                        <segue destination="NCo-mW-4Y9" kind="presentation" identifier="searchRoute" modalPresentationStyle="fullScreen" id="SQe-tH-gii"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9E-81-kws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="552"/>
+            <point key="canvasLocation" x="2044" y="510"/>
         </scene>
         <!--Route View Controller-->
         <scene sceneID="wyN-jO-q6q">
@@ -238,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9o-uJ-Uef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="-320"/>
+            <point key="canvasLocation" x="2765" y="-320"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -321,10 +323,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="rXz-N6-reP" kind="show" identifier="setHomeAddress" id="UCP-4u-Zd6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2v-8H-ouK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="778"/>
+            <point key="canvasLocation" x="1084" y="778"/>
         </scene>
     </scenes>
     <resources>
@@ -333,4 +338,8 @@
         <image name="Pin" width="16" height="24"/>
         <image name="Settings" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UCP-4u-Zd6"/>
+        <segue reference="SQe-tH-gii"/>
+    </inferredMetricsTieBreakers>
 </document>

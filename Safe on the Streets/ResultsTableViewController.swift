@@ -13,7 +13,6 @@ class ResultsTableViewController: UITableViewController {
 
     var mapItems: [MKMapItem]!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

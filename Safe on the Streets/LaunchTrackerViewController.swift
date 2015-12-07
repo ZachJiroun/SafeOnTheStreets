@@ -16,6 +16,7 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var enterDestinationView: UIView!
     
     var matchingItems: [MKMapItem] = [MKMapItem]()
+    var homeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +53,22 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func goHomeButtonPressed(sender: UIButton) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        guard let address = defaults.stringForKey(Tags.HomeAddress) else {
+        guard let address = defaults.objectForKey(Tags.HomeAddress) as? NSDictionary else {
             let alert = UIAlertController(title: "Home Address Not Set", message: "Please set a home address in Settings", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
-        
+        let coordinate = CLLocationCoordinate2D(latitude: address.valueForKey("lat") as! Double, longitude: address.valueForKey("lon") as! Double)
+        self.homeCoordinate = coordinate
+        performSegueWithIdentifier("homeRoute", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "homeRoute" {
+            let routeViewController = segue.destinationViewController as! RouteViewController
+            routeViewController.destination = MKMapItem(placemark: MKPlacemark(coordinate: homeCoordinate, addressDictionary: nil))
+        }
     }
     
     @IBAction func enterDestinationButtonPressed(sender: AnyObject) {
