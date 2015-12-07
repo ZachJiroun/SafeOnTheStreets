@@ -15,7 +15,6 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var goHomeView: UIView!
     @IBOutlet weak var enterDestinationView: UIView!
     
-    @IBOutlet weak var searchTextField: UITextField!
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     override func viewDidLoad() {
@@ -51,11 +50,6 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         enterDestinationView.layer.shadowPath = UIBezierPath(rect: enterDestinationView.bounds).CGPath
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let destination = segue.destinationViewController as! ResultsTableViewController
-//        destination.mapItems = self.matchingItems
-//    }
-    
     @IBAction func goHomeButtonPressed(sender: UIButton) {
         let defaults = NSUserDefaults.standardUserDefaults()
         guard let address = defaults.stringForKey(Tags.HomeAddress) else {
@@ -68,52 +62,12 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func enterDestinationButtonPressed(sender: AnyObject) {
-        
+        let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backItem
     }
-    
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         mapView.centerCoordinate = (userLocation.location?.coordinate)!
-    }
-    
-    @IBAction func textFieldReturn(sender: UITextField) {
-        sender.resignFirstResponder()
-        mapView.removeAnnotations(mapView.annotations)
-        self.performSearch()
-    }
-    
-    func performSearch() {
-        
-        matchingItems.removeAll()
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = searchTextField.text
-        request.region = mapView.region
-        
-        let search = MKLocalSearch(request: request)
-        
-        search.startWithCompletionHandler { (response: MKLocalSearchResponse?, error: NSError?) -> Void in
-            if error != nil {
-                print("Error occured in search: \(error!.localizedDescription)")
-            } else if response!.mapItems.count == 0 {
-                print("No matches found")
-            } else {
-                print("Matches found")
-                
-                for item in response!.mapItems {
-                    print("Name = \(item.name)")
-                    print("Phone = \(item.phoneNumber)")
-                    
-                    self.matchingItems.append(item as MKMapItem)
-                    print("Matching items = \(self.matchingItems.count)")
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = item.placemark.coordinate
-                    annotation.title = item.name
-                    self.mapView.addAnnotation(annotation)
-                }
-            }
-
-        }
     }
 }
 
