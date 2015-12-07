@@ -12,6 +12,9 @@ import MapKit
 class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var goHomeView: UIView!
+    @IBOutlet weak var enterDestinationView: UIView!
+    
     @IBOutlet weak var searchTextField: UITextField!
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
@@ -19,14 +22,33 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.showsUserLocation = true
         mapView.delegate = self
-
+        self.navigationController?.navigationBar.topItem?.title = "Safe on the Streets"
         let userLocation = mapView.userLocation
         mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2000, 2000)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setupViews()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupViews() {
+        goHomeView.layer.masksToBounds = false
+        goHomeView.layer.shadowOffset = CGSizeMake(0, 1)
+        goHomeView.layer.shadowRadius = 4
+        goHomeView.layer.shadowOpacity = 0.5
+        goHomeView.layer.shadowPath = UIBezierPath(rect: goHomeView.bounds).CGPath
+        
+        enterDestinationView.layer.masksToBounds = false
+        enterDestinationView.layer.shadowOffset = CGSizeMake(0, 1)
+        enterDestinationView.layer.shadowRadius = 4
+        enterDestinationView.layer.shadowOpacity = 0.5
+        enterDestinationView.layer.shadowPath = UIBezierPath(rect: enterDestinationView.bounds).CGPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -42,6 +64,13 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
     }
     
+    @IBAction func goHomeButtonPressed(sender: UIButton) {
+        print("go home")
+    }
+    
+    @IBAction func enterDestinationButtonPressed(sender: AnyObject) {
+        print("enter destination")
+    }
     
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {

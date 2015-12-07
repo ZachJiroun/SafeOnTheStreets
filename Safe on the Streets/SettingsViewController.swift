@@ -140,7 +140,7 @@ class SettingsViewController: XLFormViewController {
 
         // Set Home Address
         row = XLFormRowDescriptor(tag: Tags.HomeAddress, rowType: XLFormRowDescriptorTypeSelectorPush, title: "Set Home Address")
-        //row.action.viewControllerStoryboardId = "SecurityViewController"
+        row.action.viewControllerStoryboardId = "AddressSearchViewController"
         section.addFormRow(row)
         
         self.form = form
