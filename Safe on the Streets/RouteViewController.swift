@@ -27,6 +27,10 @@ class RouteViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func doneButtonTouched(sender: UIBarButtonItem) {
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func getDirections() {
         let request = MKDirectionsRequest()
         request.source = MKMapItem.mapItemForCurrentLocation()
@@ -37,7 +41,11 @@ class RouteViewController: UIViewController, MKMapViewDelegate {
         
         directions.calculateDirectionsWithCompletionHandler({(response: MKDirectionsResponse?, error: NSError?) -> Void in
             if error != nil {
-                print("Error getting directions")
+                let alert = UIAlertController(title: "No route found", message: "Please try a different location.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction!) -> Void in
+                    self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
             } else {
                 self.showRoute(response!)
             }
