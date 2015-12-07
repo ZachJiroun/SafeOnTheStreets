@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import DZNEmptyDataSet
 
-class AddressSearchViewController: UITableViewController, UISearchBarDelegate, CLLocationManagerDelegate {
+class AddressSearchViewController: UITableViewController, UISearchBarDelegate, CLLocationManagerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     var matchingItems: [MKMapItem] = [MKMapItem]()
@@ -17,6 +18,7 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
     let reuseIdentifier = "addressCell"
     let locationManager = CLLocationManager()
     var isSettingHomeLocation: Bool = false
+    var shouldBeginEditing: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,10 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -73,12 +79,29 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
         }
     }
     
-    // MARK: MapKit Search
+    // MARK - UISearchBarDelegate
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchBar.isFirstResponder() {
+            // User tapped the 'clear' button
+            shouldBeginEditing = false
+            matchingItems = []
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        let boolToReturn = shouldBeginEditing
+        shouldBeginEditing = true
+        return boolToReturn
+    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         performSearch()
     }
+    
+    // MARK: MapKit Search
     
     func performSearch() {
         matchingItems.removeAll()
@@ -89,15 +112,14 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
         let search = MKLocalSearch(request: request)
         
         search.startWithCompletionHandler { (response: MKLocalSearchResponse?, error: NSError?) -> Void in
-            if error != nil {
-                print("Error occured in search: \(error!.localizedDescription)")
-            } else if response!.mapItems.count == 0 {
-                print("No matches found")
+            if error != nil || response!.mapItems.count == 0 {
+                let alert = UIAlertController(title: "No Locations Found", message: "Please try a different location.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             } else {
                 self.matchingItems = response!.mapItems
                 self.tableView.reloadData()
             }
-            
         }
     }
     
@@ -119,4 +141,28 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
     {
         print("Error: " + error.localizedDescription)
     }
+    
+    // MARK: - DZNEmptyDataSet
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "Search")
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let description: String = "Please enter your destination"
+        
+        let paragraph: NSMutableParagraphStyle = NSMutableParagraphStyle.init()
+        paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraph.alignment = NSTextAlignment.Center
+        
+        let attributes: NSDictionary = [NSFontAttributeName: UIFont.systemFontOfSize(18.0), NSForegroundColorAttributeName: UIColor.textColor(), NSParagraphStyleAttributeName: paragraph]
+        
+        return NSAttributedString(string: description, attributes: attributes as? [String : AnyObject])
+    }
+    
+    func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.backgroundColor()
+    }
+    
+    
 }

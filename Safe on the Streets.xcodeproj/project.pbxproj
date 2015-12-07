@@ -18,7 +18,6 @@
 		927542B51C0D481100F2CF5B /* Safe_on_the_StreetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927542B41C0D481100F2CF5B /* Safe_on_the_StreetsUITests.swift */; };
 		927542C31C0D4B5000F2CF5B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927542C21C0D4B5000F2CF5B /* TabBarController.swift */; };
 		927542C51C0D615600F2CF5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927542C41C0D615600F2CF5B /* MapKit.framework */; };
-		92A1C8721C13FDF600B273E9 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */; };
 		92A1C8741C13FE1400B273E9 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */; };
 		92A1C8761C13FE2200B273E9 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8751C13FE2200B273E9 /* RouteViewController.swift */; };
 		92A1C8781C140F1B00B273E9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */; };
@@ -64,7 +63,6 @@
 		927542B61C0D481100F2CF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		927542C21C0D4B5000F2CF5B /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		927542C41C0D615600F2CF5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		92A1C8751C13FE2200B273E9 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		92A1C8771C140F1B00B273E9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				927542921C0D481000F2CF5B /* AppDelegate.swift */,
 				927542941C0D481000F2CF5B /* LaunchTrackerViewController.swift */,
 				92A1C8861C151C9B00B273E9 /* AddressSearchViewController.swift */,
-				92A1C8711C13FDF600B273E9 /* ResultsTableViewController.swift */,
 				92A1C8731C13FE1400B273E9 /* ResultsTableViewCell.swift */,
 				92A1C8751C13FE2200B273E9 /* RouteViewController.swift */,
 				927542961C0D481000F2CF5B /* SettingsViewController.swift */,
@@ -394,7 +391,6 @@
 				92A1C87A1C14C35300B273E9 /* UserDefaultsPasscodeRepository.swift in Sources */,
 				927542931C0D481000F2CF5B /* AppDelegate.swift in Sources */,
 				927542951C0D481000F2CF5B /* LaunchTrackerViewController.swift in Sources */,
-				92A1C8721C13FDF600B273E9 /* ResultsTableViewController.swift in Sources */,
 				92A1C8761C13FE2200B273E9 /* RouteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
