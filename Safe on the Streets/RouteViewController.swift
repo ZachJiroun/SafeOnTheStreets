@@ -9,13 +9,20 @@
 import UIKit
 import MapKit
 
-class RouteViewController: UIViewController, MKMapViewDelegate {
+class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var routeMap: MKMapView!
     var destination: MKMapItem?
+    let locationManager = CLLocationManager()
+    var region: MKCoordinateRegion?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
         
         routeMap.showsUserLocation = true
         routeMap.delegate = self
@@ -59,9 +66,8 @@ class RouteViewController: UIViewController, MKMapViewDelegate {
                 print(step.instructions)
             }
         }
-        let userLocation = routeMap.userLocation
-        let region = MKCoordinateRegionMakeWithDistance((userLocation.location?.coordinate)!, 2000, 2000)
-        routeMap.setRegion(region, animated: true)
+        //let userLocation = routeMap.userLocation
+        routeMap.setRegion(self.region!, animated: true)
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -69,6 +75,25 @@ class RouteViewController: UIViewController, MKMapViewDelegate {
         renderer.strokeColor = UIColor.blueColor()
         renderer.lineWidth = 5.0
         return renderer
+    }
+    
+    
+    // MARK: - Location Delegate Methods
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        let location = locations.last
+        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegionMakeWithDistance(center, 2000.0, 2000.0)
+        self.region = region
+        
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+    {
+        print("Error: " + error.localizedDescription)
     }
     
     // MARK: - Navigation
