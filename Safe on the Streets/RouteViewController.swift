@@ -16,9 +16,13 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     let locationManager = CLLocationManager()
     var region: MKCoordinateRegion?
     
+    @IBOutlet weak var checkInCountdownView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // The background shadow will pop in if setupViews() not called in viewDidLoad because we're using a modal segue to this view controller
+        setupViews()
+
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -27,6 +31,11 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         routeMap.showsUserLocation = true
         routeMap.delegate = self
         self.getDirections()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +47,17 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK - View Setup
+    
+    func setupViews() {
+        checkInCountdownView.layer.masksToBounds = false
+        checkInCountdownView.layer.shadowOffset = CGSizeMake(0, 1)
+        checkInCountdownView.layer.shadowRadius = 4
+        checkInCountdownView.layer.shadowOpacity = 0.5
+        //checkInCountdownView.layer.shadowPath = UIBezierPath(rect: checkInCountdownView.bounds).CGPath
+    }
+    
+    // MARK - MapKit
     func getDirections() {
         let request = MKDirectionsRequest()
         request.source = MKMapItem.mapItemForCurrentLocation()
@@ -76,7 +96,6 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         renderer.lineWidth = 5.0
         return renderer
     }
-    
     
     // MARK: - Location Delegate Methods
     

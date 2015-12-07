@@ -256,6 +256,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="KCj-yU-mK4"/>
                                     <constraint firstItem="vXK-B3-umC" firstAttribute="centerY" secondItem="LtD-On-Iuo" secondAttribute="centerY" id="VmU-jh-AuM"/>
                                     <constraint firstItem="vXK-B3-umC" firstAttribute="centerX" secondItem="LtD-On-Iuo" secondAttribute="centerX" id="b5K-Jy-azM"/>
                                     <constraint firstAttribute="height" constant="50" id="qsF-wG-qT9"/>
@@ -266,11 +267,13 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="leading" secondItem="rr6-Zx-OKy" secondAttribute="leading" id="33k-UE-7Oo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LtD-On-Iuo" secondAttribute="trailing" id="E1R-8c-IIe"/>
                             <constraint firstItem="tSS-pX-JhO" firstAttribute="leading" secondItem="rr6-Zx-OKy" secondAttribute="leading" id="K0m-B7-epJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RSK-Uz-chZ" secondAttribute="leading" id="KLe-vE-Ud4"/>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="top" secondItem="tSS-pX-JhO" secondAttribute="bottom" id="MuX-nB-foI"/>
                             <constraint firstItem="wRN-H0-8OB" firstAttribute="top" secondItem="Jck-F5-TAG" secondAttribute="bottom" id="ODC-ch-GdZ"/>
                             <constraint firstAttribute="trailing" secondItem="Jck-F5-TAG" secondAttribute="trailing" id="Xia-7m-ftd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LtD-On-Iuo" secondAttribute="leading" id="dPW-TT-8VX"/>
                             <constraint firstItem="tSS-pX-JhO" firstAttribute="top" secondItem="Vvd-Lk-GVq" secondAttribute="bottom" id="eLb-LM-bfm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RSK-Uz-chZ" secondAttribute="trailing" id="jRH-DL-KxK"/>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="top" secondItem="tSS-pX-JhO" secondAttribute="bottom" id="kkk-8a-8RW"/>
@@ -278,6 +281,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkInCountdownView" destination="LtD-On-Iuo" id="9zR-Eh-Fuc"/>
                         <outlet property="routeMap" destination="Jck-F5-TAG" id="VBM-gT-1gn"/>
                     </connections>
                 </viewController>
