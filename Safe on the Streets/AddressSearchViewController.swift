@@ -163,6 +163,4 @@ class AddressSearchViewController: UITableViewController, UISearchBarDelegate, C
     func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
         return UIColor.backgroundColor()
     }
-    
-    
 }

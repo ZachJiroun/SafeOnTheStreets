@@ -28,11 +28,21 @@ class SettingsViewController: XLFormViewController {
             if let rowDescriptor = validationStatus.rowDescriptor, let indexPath = form.indexPathOfFormRow(rowDescriptor), let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 self.animateCell(cell)
             }
+            
         }
         if formErrors.count > 0 {
             return
         }
         
+        let alert = UIAlertController(title: "Are you sure?", message: "Your settings will be saved.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {(action:UIAlertAction!) -> Void in
+            self.saveSettings()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func saveSettings() {
         // Save form values to NSUserDefaults
         let defaults = NSUserDefaults.standardUserDefaults()
         let formValues: NSDictionary = form.formValues()

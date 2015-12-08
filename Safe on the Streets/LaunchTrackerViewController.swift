@@ -80,4 +80,3 @@ class LaunchTrackerViewController: UIViewController, MKMapViewDelegate {
         mapView.centerCoordinate = (userLocation.location?.coordinate)!
     }
 }
-
