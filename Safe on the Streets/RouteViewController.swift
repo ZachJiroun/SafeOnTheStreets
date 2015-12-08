@@ -15,18 +15,28 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var destination: MKMapItem?
     let locationManager = CLLocationManager()
     var region: MKCoordinateRegion?
-    
+    var timer = NSTimer()
+    var secondsRemaining = 300
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var checkInCountdownView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // The background shadow will pop in if setupViews() not called in viewDidLoad because we're using a modal segue to this view controller
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let time = defaults.stringForKey(Tags.CheckInTime) {
+            secondsRemaining = Int(time)! * 60
+        }
+        let startTime: Int = secondsRemaining / 60
+        timerLabel.text = "\(startTime):00 Until Next Check In"
         setupViews()
 
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        
+        startTimer()
         
         routeMap.showsUserLocation = true
         routeMap.delegate = self
@@ -54,7 +64,21 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         checkInCountdownView.layer.shadowOffset = CGSizeMake(0, 1)
         checkInCountdownView.layer.shadowRadius = 4
         checkInCountdownView.layer.shadowOpacity = 0.5
+        // Can't convert to a bezier path because the view's bounds wont' be established until viewDidAppear
         //checkInCountdownView.layer.shadowPath = UIBezierPath(rect: checkInCountdownView.bounds).CGPath
+    }
+    
+    // MARK - Timer
+    
+    func startTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
+    }
+    
+    func countdown() {
+        secondsRemaining--
+        let minutes: Int = (secondsRemaining%3600)/60
+        let seconds: Int = (secondsRemaining%3600)%60
+        timerLabel.text = "\(minutes):\(seconds) Until Next Check In"
     }
     
     // MARK - MapKit

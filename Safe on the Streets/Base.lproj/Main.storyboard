@@ -238,7 +238,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-On-Iuo">
                                 <rect key="frame" x="20" y="78" width="560" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2:12 Until Next Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-B3-umC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-B3-umC">
                                         <rect key="frame" x="187" y="15" width="186" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -283,6 +283,7 @@
                     <connections>
                         <outlet property="checkInCountdownView" destination="LtD-On-Iuo" id="9zR-Eh-Fuc"/>
                         <outlet property="routeMap" destination="Jck-F5-TAG" id="VBM-gT-1gn"/>
+                        <outlet property="timerLabel" destination="vXK-B3-umC" id="DOY-2p-2ce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9o-uJ-Uef" userLabel="First Responder" sceneMemberID="firstResponder"/>
