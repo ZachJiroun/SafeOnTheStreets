@@ -49,7 +49,11 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     @IBAction func doneButtonTouched(sender: UIBarButtonItem) {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        let alert = UIAlertController(title: "Safe!", message: "We've alerted your contact that you got home safely.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction!) -> Void in
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func emergencyButtonTouched(sender: UIButton) {
