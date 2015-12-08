@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import PasscodeLock
 
 class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -22,21 +23,13 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // The background shadow will pop in if setupViews() not called in viewDidLoad because we're using a modal segue to this view controller
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let time = defaults.stringForKey(Tags.CheckInTime) {
-            secondsRemaining = Int(time)! * 60
-        }
-        let startTime: Int = secondsRemaining / 60
-        timerLabel.text = "\(startTime):00 Until Next Check In"
+        // The background shadow will pop in if setupViews() is not called in viewDidLoad because we're using a modal segue to this view controller
         setupViews()
 
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
-        
-        startTimer()
         
         routeMap.showsUserLocation = true
         routeMap.delegate = self
@@ -46,8 +39,10 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        getStartingTime()
+        startTimer()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,6 +71,17 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     // MARK - Timer
     
+    func getStartingTime() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let time = defaults.stringForKey(Tags.CheckInTime) {
+            secondsRemaining = Int(time)! * 60
+        } else {
+            secondsRemaining = 300
+        }
+        let startTime: Int = secondsRemaining / 60
+        timerLabel.text = String.localizedStringWithFormat("%02d:00 %@", startTime, "Until Next Check In")
+    }
+    
     func startTimer() {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
     }
@@ -84,7 +90,14 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         secondsRemaining--
         let minutes: Int = (secondsRemaining%3600)/60
         let seconds: Int = (secondsRemaining%3600)%60
-        timerLabel.text = "\(minutes):\(seconds) Until Next Check In"
+        timerLabel.text = String.localizedStringWithFormat("%02d:%02d %@", minutes, seconds, "Until Next Check In")
+        if secondsRemaining == 0 {
+            self.timer.invalidate()
+            let repository = UserDefaultsPasscodeRepository()
+            let configuration = PasscodeLockConfiguration(repository: repository)
+            let passcodeVC = PasscodeLockViewController(state: .EnterPasscode, configuration: configuration)
+            presentViewController(passcodeVC, animated: true, completion: nil)
+        }
     }
     
     // MARK - MapKit

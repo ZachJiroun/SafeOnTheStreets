@@ -260,12 +260,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-On-Iuo">
                                 <rect key="frame" x="20" y="78" width="560" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-B3-umC">
-                                        <rect key="frame" x="187" y="15" width="186" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-B3-umC">
+                                        <rect key="frame" x="8" y="15" width="544" height="21"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="186" id="O3x-5l-0c4"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -281,11 +278,13 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vXK-B3-umC" secondAttribute="trailing" constant="8" id="AOa-uN-U1k"/>
                                     <constraint firstItem="RSK-Uz-chZ" firstAttribute="centerY" secondItem="vXK-B3-umC" secondAttribute="centerY" id="Etj-GP-mjk"/>
                                     <constraint firstItem="RSK-Uz-chZ" firstAttribute="top" secondItem="LtD-On-Iuo" secondAttribute="top" id="Hca-bT-DmX"/>
                                     <constraint firstAttribute="width" constant="560" id="KCj-yU-mK4"/>
                                     <constraint firstItem="vXK-B3-umC" firstAttribute="centerY" secondItem="LtD-On-Iuo" secondAttribute="centerY" id="VmU-jh-AuM"/>
                                     <constraint firstItem="vXK-B3-umC" firstAttribute="centerX" secondItem="LtD-On-Iuo" secondAttribute="centerX" id="b5K-Jy-azM"/>
+                                    <constraint firstItem="vXK-B3-umC" firstAttribute="leading" secondItem="LtD-On-Iuo" secondAttribute="leading" constant="8" id="c7L-y6-hVB"/>
                                     <constraint firstAttribute="height" constant="50" id="qsF-wG-qT9"/>
                                     <constraint firstItem="vXK-B3-umC" firstAttribute="top" secondItem="LtD-On-Iuo" secondAttribute="top" constant="15" id="yFX-IV-4sR"/>
                                 </constraints>
