@@ -262,20 +262,39 @@
                                     <constraint firstAttribute="height" constant="50" id="qsF-wG-qT9"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDi-ZA-Vfq">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Y2V-Uf-fOU"/>
+                                    <constraint firstAttribute="width" constant="600" id="Yxd-jt-4gE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Alert Emergency Contact">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="emergencyButtonTouched:" destination="NCo-mW-4Y9" eventType="touchUpInside" id="csb-CN-OMS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="leading" secondItem="rr6-Zx-OKy" secondAttribute="leading" id="33k-UE-7Oo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LtD-On-Iuo" secondAttribute="trailing" id="E1R-8c-IIe"/>
+                            <constraint firstItem="MDi-ZA-Vfq" firstAttribute="leading" secondItem="rr6-Zx-OKy" secondAttribute="leading" id="IvA-Nt-Gpg"/>
                             <constraint firstItem="tSS-pX-JhO" firstAttribute="leading" secondItem="rr6-Zx-OKy" secondAttribute="leading" id="K0m-B7-epJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RSK-Uz-chZ" secondAttribute="leading" id="KLe-vE-Ud4"/>
+                            <constraint firstItem="wRN-H0-8OB" firstAttribute="top" secondItem="MDi-ZA-Vfq" secondAttribute="bottom" id="Kjo-GR-qzc"/>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="top" secondItem="tSS-pX-JhO" secondAttribute="bottom" id="MuX-nB-foI"/>
                             <constraint firstItem="wRN-H0-8OB" firstAttribute="top" secondItem="Jck-F5-TAG" secondAttribute="bottom" id="ODC-ch-GdZ"/>
                             <constraint firstAttribute="trailing" secondItem="Jck-F5-TAG" secondAttribute="trailing" id="Xia-7m-ftd"/>
                             <constraint firstAttribute="leadingMargin" secondItem="LtD-On-Iuo" secondAttribute="leading" id="dPW-TT-8VX"/>
                             <constraint firstItem="tSS-pX-JhO" firstAttribute="top" secondItem="Vvd-Lk-GVq" secondAttribute="bottom" id="eLb-LM-bfm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RSK-Uz-chZ" secondAttribute="trailing" id="jRH-DL-KxK"/>
+                            <constraint firstAttribute="trailing" secondItem="MDi-ZA-Vfq" secondAttribute="trailing" id="jwg-4H-HIC"/>
                             <constraint firstItem="Jck-F5-TAG" firstAttribute="top" secondItem="tSS-pX-JhO" secondAttribute="bottom" id="kkk-8a-8RW"/>
                             <constraint firstAttribute="trailing" secondItem="tSS-pX-JhO" secondAttribute="trailing" id="pEF-m6-Q9T"/>
                         </constraints>

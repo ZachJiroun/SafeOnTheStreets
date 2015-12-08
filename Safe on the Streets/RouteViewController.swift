@@ -57,6 +57,12 @@ class RouteViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func emergencyButtonTouched(sender: UIButton) {
+        let alert = UIAlertController(title: "Emergency Contact Alerted", message: "Your location has been sent to your emergency contact. Help will arrive shortly", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     // MARK - View Setup
     
     func setupViews() {
